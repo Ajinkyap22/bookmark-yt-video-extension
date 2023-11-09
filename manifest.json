@@ -1,0 +1,41 @@
+{
+  "name": "Mark-It",
+  "version": "0.1.0",
+  "description": "Bookmark specific moments in YouTube videos so you can easily find them later",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bookmark.svg",
+        "assets/delete.svg",
+        "assets/play.svg"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "assets/icon.png",
+    "24": "assets/icon.png",
+    "32": "assets/icon.png"
+  },
+  "action": {
+    "default_title": "Mark-It",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon.png",
+      "24": "assets/icon.png",
+      "32": "assets/icon.png"
+    }
+  },
+  "manifest_version": 3
+}
